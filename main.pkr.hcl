@@ -117,10 +117,6 @@ variable "uptodate" {
   type    = bool
   default = false
 }
-variable "ansible_home" {
-  type    = string
-  default = null
-}
 variable "description" {
   type    = string
   default = "build with mypacker"
