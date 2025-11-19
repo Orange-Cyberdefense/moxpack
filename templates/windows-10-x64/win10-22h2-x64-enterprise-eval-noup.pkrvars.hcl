@@ -1,0 +1,11 @@
+vm_id = 102220
+vm_name = "windows-10-22h2-x64-enterprise-eval-noup-template"
+iso_url = "https://software-static.download.prss.microsoft.com/dbazure/988969d5-f34g-4e03-ac9d-1f9786c66750/19045.2006.220908-0225.22h2_release_svc_refresh_CLIENTENTERPRISEEVAL_OEMRET_x64FRE_en-us.iso"
+iso_checksum = "sha256:ef7312733a9f5d7d51cfa04ac497671995674ca5e1058d5164d6028f0938d668"
+iso_download_pve = true
+#iso_file = "local:iso/win10-22h2-x64-enterprise-eval.iso"
+os = "win10"
+vm_disk_size = "50G"
+uptodate = false
+image_name = "Windows 10 Enterprise Evaluation"
+description = "Windows 10 22H2 Enterprise 64-bit eval without updates"

@@ -1,0 +1,11 @@
+vm_id = 201901
+vm_name = "windows-server-2019-x64-eval-template"
+iso_url = "https://software-static.download.prss.microsoft.com/dbazure/988969d5-f34g-4e03-ac9d-1f9786c66749/17763.3650.221105-1748.rs5_release_svc_refresh_SERVER_EVAL_x64FRE_en-us.iso"
+iso_checksum = "sha256:6dae072e7f78f4ccab74a45341de0d6e2d45c39be25f1f5920a2ab4f51d7bcbb"
+iso_download_pve = true
+#iso_file = "local:iso/windows2019-x64-eval.iso"
+os = "win10"
+vm_disk_size = "60G"
+uptodate = true
+image_name = "Windows Server 2019 SERVERSTANDARD"
+description = "Windows Server 2019 64-bit evaluation with security updates"

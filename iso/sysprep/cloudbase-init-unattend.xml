@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<unattend xmlns="urn:schemas-microsoft-com:unattend">
+
+  <!-- ===== Generalize Pass ===== -->
+  <settings pass="generalize">
+    <component name="Microsoft-Windows-Security-SPP"
+               processorArchitecture="amd64"
+               publicKeyToken="31bf3856ad364e35"
+               language="neutral"
+               versionScope="nonSxS"
+               xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <!-- Controls rearm of Windows activation counter -->
+      <!-- 0 = reset counter (default), 1 = skip rearm -->
+      <SkipRearm>0</SkipRearm>
+    </component>
+  </settings>
+
+  <!-- ===== Specialize Pass ===== -->
+  <settings pass="specialize">
+    <component name="Microsoft-Windows-Deployment"
+               processorArchitecture="amd64"
+               publicKeyToken="31bf3856ad364e35"
+               language="neutral"
+               versionScope="nonSxS"
+               xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <RunSynchronous>
+        <RunSynchronousCommand wcm:action="add">
+          <Order>1</Order>
+          <!-- Re-enable auto start of Cloudbase-Init service -->
+          <Path>sc config cloudbase-init start= auto</Path>
+          <Description>Re-enable auto start of cloudbase-init</Description>
+          <WillReboot>Never</WillReboot>
+        </RunSynchronousCommand>
+      </RunSynchronous>
+    </component>
+  </settings>
+
+  <!-- ===== OOBE System Pass ===== -->
+  <settings pass="oobeSystem">
+    <!-- Shell setup: user, timezone, and OOBE options -->
+    <component name="Microsoft-Windows-Shell-Setup"
+               processorArchitecture="amd64"
+               publicKeyToken="31bf3856ad364e35"
+               language="neutral"
+               versionScope="nonSxS"
+               xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State">
+
+      <OOBE>
+        <!-- Skip all first-boot experience screens -->
+        <HideEULAPage>true</HideEULAPage>
+        <HideWirelessSetupInOOBE>true</HideWirelessSetupInOOBE>
+        <SkipUserOOBE>true</SkipUserOOBE>
+        <SkipMachineOOBE>true</SkipMachineOOBE>
+        <NetworkLocation>Work</NetworkLocation>
+        <!-- Disable automatic protection updates; manual updates available -->
+        <ProtectYourPC>3</ProtectYourPC>
+        <!-- Hide account creation screens -->
+        <HideLocalAccountScreen>true</HideLocalAccountScreen>
+        <HideOEMRegistrationScreen>true</HideOEMRegistrationScreen>
+        <HideOnlineAccountScreens>true</HideOnlineAccountScreens>
+      </OOBE>
+
+      <!-- Set timezone to Paris -->
+      <TimeZone>Romance Standard Time</TimeZone>
+
+      <UserAccounts>
+        <!-- Set Administrator built-in account password -->
+        <AdministratorPassword>
+          <Value>vagrant</Value>
+          <PlainText>true</PlainText>
+        </AdministratorPassword>
+
+        <!-- Create local user 'vagrant' with admin privileges -->
+        <LocalAccounts>
+          <LocalAccount wcm:action="add">
+            <Password>
+              <Value>vagrant</Value>
+              <PlainText>true</PlainText>
+            </Password>
+            <Group>administrators</Group>
+            <DisplayName>Vagrant</DisplayName>
+            <Name>vagrant</Name>
+            <Description>Vagrant User</Description>
+          </LocalAccount>
+        </LocalAccounts>
+      </UserAccounts>
+    </component>
+
+    <!-- International Core: keyboard and language settings -->
+    <component name="Microsoft-Windows-International-Core"
+               processorArchitecture="amd64"
+               publicKeyToken="31bf3856ad364e35"
+               language="neutral"
+               versionScope="nonSxS"
+               xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+      <!-- InputLocale: US + FR keyboard -->
+      <InputLocale>0409:00000409;040c:0000040c</InputLocale>
+      <!-- System language and user interface -->
+      <SystemLocale>en-US</SystemLocale>
+      <UILanguage>en-US</UILanguage>
+      <UserLocale>en-US</UserLocale>
+    </component>
+  </settings>
+
+</unattend>

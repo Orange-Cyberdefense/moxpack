@@ -1,0 +1,11 @@
+vm_id = 201601
+vm_name = "windows-server-2016-x64-eval-template"
+iso_url = "https://software-static.download.prss.microsoft.com/pr/download/Windows_Server_2016_Datacenter_EVAL_en-us_14393_refresh.ISO"
+iso_checksum = "sha256:1ce702a578a3cb1ac3d14873980838590f06d5b7101c5daaccbac9d73f1fb50f"
+iso_download_pve = true
+#iso_file = "local:iso/windows2016-x64-eval.iso"
+os = "win10"
+uptodate = true
+vm_disk_size = "60G"
+image_name = "Windows Server 2016 SERVERSTANDARD"
+description = "Windows Server 2016 64-bit evaluation with security update"

@@ -1,0 +1,11 @@
+vm_id = 112521
+vm_name = "windows-11-25h2-x64-enterprise-eval-template"
+iso_url = "https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/26100.1.240331-1435.ge_release_CLIENTENTERPRISEEVAL_OEMRET_x64FRE_en-us.iso"
+iso_checksum = "sha256:F9013861CB88C168941FE1164DB500157A803E3A7F33A546252BA314A4C76AAD"
+iso_download_pve = true
+#iso_file = "local:iso/en-us_windows_11_25h2_x64_business_editions_version.iso"
+os = "win10"
+uptodate = true
+vm_disk_size = "50G"
+description = "Windows 11 25H2 64-bit Enterprise with security update"
+image_name = "Windows 11 Enterprise Evaluation"

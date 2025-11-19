@@ -1,0 +1,7 @@
+rich
+setuptools
+ansible-core
+pywinrm
+proxmoxer
+requests
+python-hcl2
