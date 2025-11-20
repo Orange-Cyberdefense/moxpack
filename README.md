@@ -11,7 +11,8 @@ A Qemu Proxmox Template builder project using Packer 📦
 
 ## Usage
 - Copy variables.auto.pkrvars.hcl.template to variables.auto.pkrvars.hcl
-- Complete the informations
+- Run ./create_symlinks.sh
+- Complete the informations on variables.auto.pkrvars.hcl
 - Run `./moxpack.sh status`
 
 ![screenshot.png](./img/screenshot.png)
