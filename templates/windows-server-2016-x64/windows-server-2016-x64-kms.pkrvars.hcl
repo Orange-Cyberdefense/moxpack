@@ -1,9 +1,9 @@
 vm_id = 201602
 vm_name = "windows-server-2016-x64-template"
-# iso_url = "https://software-static.download.prss.microsoft.com/pr/download/Windows_Server_2016_Datacenter_EVAL_en-us_14393_refresh.ISO"
-# iso_checksum = "sha256:1ce702a578a3cb1ac3d14873980838590f06d5b7101c5daaccbac9d73f1fb50f"
+# iso_url = ""
+# iso_checksum = "sha256:4caeb24b661fcede81cd90661aec31aa69753bf49a5ac247253dd021bc1b5cbb"
 # iso_download_pve = true
-iso_file = "local:iso/windows2016-x64.iso"
+iso_file = "local:iso/en_windows_server_2016_x64_dvd_9327751.iso"
 os = "win10"
 uptodate = true
 vm_disk_size = "60G"

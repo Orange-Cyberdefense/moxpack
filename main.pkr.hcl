@@ -20,6 +20,7 @@ variable "proxmox_api_token_id" {
 }
 variable "proxmox_api_token_secret" {
     type = string
+    default = env("PROXMOX_API_TOKEN")
     sensitive = true
 }
 variable "proxmox_node" {
@@ -52,7 +53,7 @@ variable "keymap" {
 }
 variable "keymap_variant" {
     type = string
-    default = "latin9"
+    default = ""
 }
 variable "network_bridge" {
   type = string

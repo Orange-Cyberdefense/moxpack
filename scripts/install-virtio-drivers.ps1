@@ -28,6 +28,12 @@ elseif ($ProductName -like "Windows XP*") {
 elseif ($ProductName -like "*2019*") {
     $VirtIO_OS = "2k19"
 }
+elseif ($ProductName -like "*2022*") {
+    $VirtIO_OS = "2k22"
+}
+elseif ($ProductName -like "*2025*") {
+    $VirtIO_OS = "2k25"
+}
 elseif ($ProductName -like "*2016*") {
     $VirtIO_OS = "2k16"
 }

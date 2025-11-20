@@ -1,6 +1,6 @@
-vm_id = 102221
+vm_id = 102222
 vm_name = "windows-10-22h2-x64-enterprise-template"
-#iso_url = ""
+#iso_url = "https://drive.massgrave.dev/en-us_windows_10_business_editions_version_22h2_updated_oct_2025_x64_dvd_d2eef4b0.iso"
 #iso_checksum = "sha256:2C23BC8B95A9314F15EBFF881DCBEA49651F52A96A0327D7AAF523AA66043765"
 #iso_download_pve = true
 iso_file = "local:iso/en-us_windows_10_business_editions_version_22h2_updated_oct_2025_x64_dvd_d2eef4b0.iso"

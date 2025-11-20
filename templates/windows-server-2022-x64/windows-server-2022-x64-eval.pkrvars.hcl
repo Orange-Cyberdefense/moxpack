@@ -1,0 +1,11 @@
+vm_id = 202201
+vm_name = "windows-server-2022-x64-eval-template"
+iso_url = "https://software-static.download.prss.microsoft.com/sg/download/888969d5-f34g-4e03-ac9d-1f9786c66749/SERVER_EVAL_x64FRE_en-us.iso"
+iso_checksum = "sha256:3e4fa6d8507b554856fc9ca6079cc402df11a8b79344871669f0251535255325"
+iso_download_pve = true
+#iso_file = "local:iso/windows2022-x64-eval.iso"
+os = "win10"
+vm_disk_size = "60G"
+uptodate = true
+image_name = "Windows Server 2022 SERVERSTANDARD"
+description = "Windows Server 2022 64-bit evaluation with security updates"

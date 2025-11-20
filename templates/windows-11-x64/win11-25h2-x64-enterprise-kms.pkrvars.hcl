@@ -1,11 +1,11 @@
 vm_id = 112522
 vm_name = "windows-11-25h2-x64-enterprise-template"
-# iso_url = ""
-# iso_checksum = ""
-# iso_download_pve = true
-iso_file = "local:iso/en-us_windows_11_25h2_x64_business_editions_version.iso"
-os = "win10"
-uptodate = true
+#iso_url = "https://drive.massgrave.dev/en-us_windows_11_business_editions_version_25h2_updated_nov_2025_x64_dvd_645b09df.iso"
+#iso_checksum = "sha256:C7C337FB4F64C02289B385C7974E463A58AD8D62BB1CE1B8A597730AF46BA3E8"
+#iso_download_pve = true
+iso_file = "local:iso/en-us_windows_11_business_editions_version_25h2_updated_nov_2025_x64_dvd_645b09df.iso"
+os = "win11"
+uptodate = false
 vm_disk_size = "60G"
 description = "Windows 11 25H2 64-bit Enterprise"
 

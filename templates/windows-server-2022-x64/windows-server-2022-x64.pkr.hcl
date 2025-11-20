@@ -3,7 +3,7 @@ locals {
     template_description = "${var.description}, generated with packer at ${formatdate("YYYY-MM-DD hh:mm:ss", timestamp())}, connection: username:password ${var.vm_username}:${var.vm_password}"
 }
 
-source "proxmox-iso" "windows2016-x64" {
+source "proxmox-iso" "windows2022-x64" {
    # PROXMOX infos
     proxmox_url = "${var.proxmox_api_url}"
     username    = "${var.proxmox_api_token_id}"
@@ -72,8 +72,8 @@ source "proxmox-iso" "windows2016-x64" {
       ]
       cd_content = {
         "Autounattend.xml" = templatefile("Autounattend.xml.tpl", { 
-            version         = "2k16"
-            computer_name   = "WIN2016-SRV-X64"
+            version         = "2k22"
+            computer_name   = "WIN2022-SRV-X64"
             image_name      = "${var.image_name}"
             product_key     = "${var.product_key}"
             time_zone       = "${var.windows_time_zone}"
@@ -96,15 +96,15 @@ source "proxmox-iso" "windows2016-x64" {
     additional_iso_files {
       type              = "sata"
       index             = "4"
-      iso_checksum     = "sha256:c88a0dde34605eaee6cf889f3e2a0c2af3caeb91b5df45a125ca4f701acbbbe0"
-      iso_url          = "https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/archive-virtio/virtio-win-0.1.229-1/virtio-win-0.1.229.iso"
+      iso_checksum     = "sha256:e14cf2b94492c3e925f0070ba7fdfedeb2048c91eea9c5a5afb30232a3976331"
+      iso_url          = "https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/archive-virtio/virtio-win-0.1.285-1/virtio-win-0.1.285.iso"
       iso_storage_pool = "${var.proxmox_iso_storage_pool}"
       unmount          = true
     }
 }
 
 build {
-  sources = ["source.proxmox-iso.windows2016-x64"]
+  sources = ["source.proxmox-iso.windows2022-x64"]
 
   provisioner "ansible" {
     playbook_file = var.uptodate ? "${path.cwd}/ansible/windows_update_security_updates.yml" : "${path.cwd}/ansible/windows_disable_update.yml"
@@ -114,7 +114,7 @@ build {
       "-e", "ansible_winrm_server_cert_validation=ignore",
       "-e", "ansible_winrm_connection_timeout=300",
       "-e", "ansible_winrm_read_timeout_sec=600",
-      "-e","ansible_winrm_operation_timeout_sec=600"
+      "-e","ansible_winrm_operation_timeout_sec=300"
     ]
     skip_version_check = true
   }

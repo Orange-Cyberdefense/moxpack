@@ -1,0 +1,11 @@
+vm_id = 202501
+vm_name = "windows-server-2025-x64-eval-template"
+iso_url = "https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/26100.1742.240906-0331.ge_release_svc_refresh_SERVER_EVAL_x64FRE_en-us.iso"
+iso_checksum = "sha256:d0ef4502e350e3c6c53c15b1b3020d38a5ded011bf04998e950720ac8579b23d"
+iso_download_pve = true
+#iso_file = "local:iso/windows2025-x64-eval.iso"
+os = "win11"
+vm_disk_size = "60G"
+uptodate = true
+image_name = "Windows Server 2025 SERVERSTANDARD"
+description = "Windows Server 2025 64-bit evaluation with security updates"

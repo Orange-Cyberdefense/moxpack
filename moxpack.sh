@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 py=python3
-venv="$HOME/.mypacker/.venv"
+venv="$HOME/.moxpack/.venv"
 requirement_file="requirements.yml"
 
 if [ ! -d "$venv" ]
@@ -30,7 +30,7 @@ then
   fi
 
   echo '[+] venv not found, start python venv creation'
-  mkdir -p ~/.mypacker
+  mkdir -p ~/.moxpack
   $py -m venv $venv
   source $venv/bin/activate
   if [ $? -eq 0 ]; then
@@ -49,4 +49,5 @@ fi
 
 # launch the app
 source $venv/bin/activate
-$py packmox.py
+$py moxpack.py $@
+deactivate

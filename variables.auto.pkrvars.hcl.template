@@ -1,7 +1,8 @@
 # global configuration
 proxmox_api_url = "https://192.168.1.1:8006/api2/json"
 proxmox_api_token_id = "infra_as_code@pve!infra_as_code_token"
-proxmox_api_token_secret = "MY TOKEN HERE"
+# set it here or complete the env var : PROXMOX_API_TOKEN
+#proxmox_api_token_secret = "MY TOKEN HERE"
 proxmox_node = "goadlab"
 proxmox_storage_pool = "local"
 proxmox_storage_format = "qcow2"
@@ -10,8 +11,6 @@ proxmox_pool = "templates"
 proxmox_iso_storage_pool = "local"
 
 # vms
-windows_time_zone = "Romance Standard Time"
-windows_keyboard = "0409:00000409;040c:0000040c" # US + FR
 network_bridge = "vmbr3"
 vlan_tag = "10"
 vm_cpu_cores = "2"
@@ -20,8 +19,17 @@ vm_disk_size = "50G"
 vm_username = "vagrant"
 vm_password = "vagrant"
 
+# windows
+# https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/default-time-zones?view=windows-11
+windows_time_zone = "Romance Standard Time"
+# https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/default-input-locales-for-windows-language-packs?view=windows-11
+windows_keyboard = "0409:00000409;040c:0000040c" # US + FR
+
 # linux
+# https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 timezone = "Europe/Paris"
+# all list with: cat /usr/share/X11/xkb/rules/base.lst
+# your current layout : localectl status
 keymap = "fr"
 keymap_variant = "latin9"
 ssh_public_key = "MY KEY HERE"

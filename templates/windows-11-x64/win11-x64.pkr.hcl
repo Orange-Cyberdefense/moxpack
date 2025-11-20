@@ -129,20 +129,20 @@ source "proxmox-iso" "win11-x64" {
 build {
   sources = ["source.proxmox-iso.win11-x64"]
 
-# commented has security update fail with timeout even with 7200s
+  # Fixme: Security update fail with a timeout even with 7200s so all template are update disabled
 
-#  provisioner "ansible" {
-#    playbook_file = var.uptodate ? "${path.cwd}/ansible/windows_update_security_updates.yml" : "${path.cwd}/ansible/windows_disable_update.yml"
-#    use_proxy     = false
-#    user          = "${var.vm_username}"
-#    extra_arguments = [
-#      "-e", "ansible_winrm_server_cert_validation=ignore",
-#      "-e", "ansible_winrm_connection_timeout=7200",
-#      "-e", "ansible_winrm_read_timeout_sec=7200",
-#      "-e","ansible_winrm_operation_timeout_sec=7200"
-#    ]
-#    skip_version_check = true
-#  }
+  provisioner "ansible" {
+    playbook_file = var.uptodate ? "${path.cwd}/ansible/windows_update_security_updates.yml" : "${path.cwd}/ansible/windows_disable_update.yml"
+    use_proxy     = false
+    user          = "${var.vm_username}"
+    extra_arguments = [
+      "-e", "ansible_winrm_server_cert_validation=ignore",
+      "-e", "ansible_winrm_connection_timeout=7200",
+      "-e", "ansible_winrm_read_timeout_sec=7200",
+      "-e","ansible_winrm_operation_timeout_sec=7200"
+    ]
+    skip_version_check = true
+  }
 
   provisioner "powershell" {
     scripts  = [
