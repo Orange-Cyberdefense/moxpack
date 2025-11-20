@@ -181,7 +181,24 @@ class Moxpack:
         table.add_column("Need Iso")
         #table.add_column("Path", style="dim")
 
+        prev_prefix = None
+        num_columns = len(table.columns)
+
         for template in self.templates:
+            # if 4 first digits change add an empty line
+            vm_id_str = str(template.vm_id or "")
+            digits = "".join(ch for ch in vm_id_str if ch.isdigit())
+            if len(digits) >= 4:
+                prefix = digits[:4]
+            else:
+                prefix = digits or vm_id_str[:4]
+
+            if prev_prefix is not None and prefix != prev_prefix:
+                table.add_section()
+
+            prev_prefix = prefix
+
+            # status evaluation
             status = '[bright_black]ABSENT[/bright_black]'
             status_color = 'bright_black'
             status_infos = 'Ready for creation'
@@ -212,7 +229,7 @@ class Moxpack:
                 iso_file = f"[green]{template.iso_file}[/green]"
             elif template.iso_file != "":
                 iso_file = f"[bright_black]{template.iso_file}[/bright_black]"
-                status_infos = '[red]Missing iso[/red]'
+                status_infos = '[yellow]Missing iso[/yellow]'
             
             table.add_row(
                 #status,
