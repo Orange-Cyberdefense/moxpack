@@ -4,5 +4,6 @@
     ansible.windows.win_updates:
       category_names:
       - SecurityUpdates
+      log_path: C:\updates.txt
       reboot: true
       reboot_timeout: 7200

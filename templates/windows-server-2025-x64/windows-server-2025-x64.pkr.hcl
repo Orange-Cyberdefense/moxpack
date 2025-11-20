@@ -40,14 +40,15 @@ source "proxmox-iso" "windows2025-x64" {
     }
 
     # DISK
-    scsi_controller = "virtio-scsi-single"
+    # changed to lsi and sata to avoir IO errors
+    scsi_controller = "lsi"
     disks {
       disk_size         = "${var.vm_disk_size}"
       format            = "${var.proxmox_storage_format}"
       storage_pool      = "${var.proxmox_storage_pool}"
-      type              = "virtio"
+      type              = "sata"
       discard           = true
-      io_thread         = true
+      io_thread         = false
     }
 
     # CONNECTION
