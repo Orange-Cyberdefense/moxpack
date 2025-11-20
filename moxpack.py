@@ -201,7 +201,7 @@ class Moxpack:
             # status evaluation
             status = '[bright_black]ABSENT[/bright_black]'
             status_color = 'bright_black'
-            status_infos = 'Ready for creation'
+            status_infos = '[cyan]Ready for creation[/cyan]'
             for vm_id, vm in self.proxmox_vms.items():
                 if vm_id == template.vm_id:
                     if vm.get('is_template') == 0:
